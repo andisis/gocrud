@@ -8,6 +8,9 @@ CREATE TABLE IF NOT EXISTS users (
     updated_at  TIMESTAMP                     NOT NULL  DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
 );
+-- DB seed
+INSERT INTO users (fullname, email, username)
+VALUES ("Andi Siswanto", "andisis92@gmail.com", "andisis");
 
 -- +migrate Down
 DROP TABLE users;
