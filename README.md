@@ -36,11 +36,21 @@ git clone git@github.com:andisis/gocrud.git
 cd gocrud
 ```
 
-**Copy the `.env.example` file and make the required configuration changes in the `.env` file**
+**Copy the `.env.example` to `.env`**
 
 ```bash
 cp .env.example .env
 ```
+
+Make the required configuration changes in the `.env` file.
+
+**Copy the `dbconfig.yml.example` to `dbconfig.yml`**
+
+```bash
+cp dbconfig.yml.example dbconfig.yml
+```
+
+Make the required configuration changes in the `dbconfig.yml` file.
 
 **Run DB Migration**
 
