@@ -106,6 +106,7 @@ make coverage
 * [Folder Explanation](https://github.com/golang-standards/project-layout)
 * [Golang Clean Architecture](https://hackernoon.com/golang-clean-archithecture-efd6d7c43047)
 * [Go Modules](https://blog.golang.org/using-go-modules)
+* [Google JSON Style Guide](https://google.github.io/styleguide/jsoncstyleguide.xml)
 * [Gorilla Mux](https://www.gorillatoolkit.org/pkg/mux)
 * [Gorilla CORS](https://www.gorillatoolkit.org/pkg/handlers#CORS)
 * [Logrus](https://github.com/sirupsen/logrus)
