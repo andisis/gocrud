@@ -60,7 +60,7 @@ func (mysql *mysqlUserRepository) Fetch(ctx context.Context) ([]*model.User, err
 }
 
 func (mysql *mysqlUserRepository) GetByID(ctx context.Context, id int) (res *model.User, err error) {
-	query := `SELECT id, fullname, email, username, created_at, updated_at FROM users WHERE id = $1`
+	query := `SELECT id, fullname, email, username, created_at, updated_at FROM users WHERE id = ?`
 
 	list, err := mysql.fetch(ctx, query, id)
 

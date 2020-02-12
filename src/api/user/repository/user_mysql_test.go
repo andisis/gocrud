@@ -41,7 +41,7 @@ func TestGetByID(t *testing.T) {
 		AddRow(1, "Andi Siswanto", "andisis92@gmail.com", "andisis", time.Now(), time.Now())
 
 	query := `SELECT id, fullname, email, username, created_at, updated_at FROM users
-	WHERE id = \$1`
+	WHERE id = ?`
 
 	mock.ExpectQuery(query).WillReturnRows(rows)
 	u := repository.NewSQLUserRepository(db)
@@ -59,7 +59,7 @@ func TestGetError404(t *testing.T) {
 	}
 
 	query := `SELECT id, fullname, email, username, created_at, updated_at FROM users
-	WHERE id = \$1`
+	WHERE id = ?`
 
 	mock.ExpectQuery(query).WillReturnError(err)
 	u := repository.NewSQLUserRepository(db)
