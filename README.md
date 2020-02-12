@@ -8,6 +8,11 @@ Simple CRUD RESTful API written in Go and MySQL for RDBMS
 
 Please check the [Official Golang Documentation](https://golang.org/doc/install) for installation.
 
+**Install SQL-Migrate**
+
+```bash
+go get -v github.com/rubenv/sql-migrate/...
+```
 **Install Mockery**
 
 ```bash
@@ -35,6 +40,12 @@ cd gocrud
 
 ```bash
 cp .env.example .env
+```
+
+**Run DB Migration**
+
+```bash
+make migrate
 ```
 
 **Run Application**
@@ -72,6 +83,7 @@ make coverage
 ## Folders
 
 * `cmd/gocrud` - Contains `main.go`.
+* `migrations` - Contains DB migrator.
 * `src/api` - Contains packages which are specific to your project.
 * `src/database/config` - Contains database configuration.
 * `src/database/query` - Contains database query.
@@ -88,6 +100,7 @@ make coverage
 * [Gorilla CORS](https://www.gorillatoolkit.org/pkg/handlers#CORS)
 * [Logrus](https://github.com/sirupsen/logrus)
 * [Mockery](https://github.com/vektra/mockery)
+* [SQL-Migrate](https://github.com/rubenv/sql-migrate)
 * [SQLMock](https://github.com/DATA-DOG/go-sqlmock)
 * [Testify](https://github.com/stretchr/testify)
 
