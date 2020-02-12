@@ -34,16 +34,22 @@ func NewUserHandler(r *mux.Router, us user.Usecase) {
 func (usr *UserHandler) FetchUser(w http.ResponseWriter, r *http.Request) {
 	listUser, err := usr.UsrUsecase.Fetch(r.Context())
 	if err != nil {
-		helper.RespondWithError(w, helper.GetStatusCode(err), err.Error())
+		dataErr := helper.ResponseError{
+			Error: helper.ErrPayload{
+				Code:    helper.GetStatusCode(err),
+				Message: err.Error(),
+			},
+		}
+
+		helper.JSONResponse(w, helper.GetStatusCode(err), dataErr)
 		return
 	}
 
-	data := helper.Response{
-		Status:  int64(helper.GetStatusCode(err)),
-		Message: "Success",
-		Data:    listUser,
+	data := helper.ResponseSuccess{
+		Data: listUser,
 	}
-	helper.RespondWithJSON(w, http.StatusOK, data)
+
+	helper.JSONResponse(w, http.StatusOK, data)
 	return
 }
 
@@ -52,21 +58,34 @@ func (usr *UserHandler) GetByID(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	id, err := strconv.Atoi(params["userID"])
 	if err != nil {
-		helper.RespondWithError(w, helper.GetStatusCode(err), err.Error())
+		dataErr := helper.ResponseError{
+			Error: helper.ErrPayload{
+				Code:    helper.GetStatusCode(err),
+				Message: err.Error(),
+			},
+		}
+
+		helper.JSONResponse(w, helper.GetStatusCode(err), dataErr)
 		return
 	}
 
 	user, err := usr.UsrUsecase.GetByID(r.Context(), int(id))
 	if err != nil {
-		helper.RespondWithError(w, helper.GetStatusCode(err), err.Error())
+		dataErr := helper.ResponseError{
+			Error: helper.ErrPayload{
+				Code:    helper.GetStatusCode(err),
+				Message: err.Error(),
+			},
+		}
+
+		helper.JSONResponse(w, helper.GetStatusCode(err), dataErr)
 		return
 	}
 
-	data := helper.Response{
-		Status:  int64(helper.GetStatusCode(err)),
-		Message: "Success",
-		Data:    user,
+	data := helper.ResponseSuccess{
+		Data: user,
 	}
-	helper.RespondWithJSON(w, http.StatusOK, data)
+
+	helper.JSONResponse(w, http.StatusOK, data)
 	return
 }
