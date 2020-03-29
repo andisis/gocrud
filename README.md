@@ -121,7 +121,7 @@ When contributing to this repository, please note we have a code standards, plea
 
 #### Steps to contribute
 
-1. Clone this repository.
+1. Fork this repository.
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
